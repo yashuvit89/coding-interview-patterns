@@ -7,13 +7,19 @@ var arr = [3, 1, 5, 4, 2];
 
 function cyclicSort(arr) {
   for (var i = 0; i < arr.length; i++) {
-    var curr = arr[i];
-    var target = arr[curr - 1];
-    arr[curr - 1] = curr;
-    arr[i] = target;
+    var j = arr[i] - 1;
+    if (arr[i] !== j) {
+      swap(arr, i, j);
+    }
   }
 
   return arr;
+}
+
+function swap(arr, i, j) {
+  var temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
 }
 
 var result = cyclicSort(arr);
