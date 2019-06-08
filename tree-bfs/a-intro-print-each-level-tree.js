@@ -34,7 +34,7 @@ const traverse = function(root) {
     result.push(currentLevel);
   }
 
-  return result;
+  return JSON.stringify(result);
 };
 
 var root = new TreeNode(12);
