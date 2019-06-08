@@ -8,6 +8,7 @@ class TreeNode {
 
 const traverse = function(root) {
   var result = [];
+  var avgResult = [];
   var queue = [];
 
   queue.push(root);
@@ -16,12 +17,14 @@ const traverse = function(root) {
   while (queue.length !== 0) {
     var levelSize = queue.length;
     var currentLevel = [];
+    var currentSum = 0;
     for (var i = 0; i < levelSize; i++) {
       var currentNode = queue.shift();
       var left = currentNode.left;
       var right = currentNode.right;
 
       currentLevel.push(currentNode.value);
+      currentSum += currentNode.value;
       if (left) {
         queue.push(left);
       }
@@ -31,10 +34,13 @@ const traverse = function(root) {
       }
     }
 
+    avgResult.push(currentSum / levelSize);
     result.push(currentLevel);
   }
 
+  console.log("Average", avgResult);
   return JSON.stringify(result);
+  // return JSON.stringify(avgResult);
 };
 
 var root = new TreeNode(12);
