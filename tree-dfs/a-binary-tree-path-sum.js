@@ -1,4 +1,3 @@
-// Not working - need to debug
 class TreeNode {
   constructor(value) {
     this.value = value;
@@ -6,7 +5,6 @@ class TreeNode {
     this.right = null;
   }
 }
-
 const hasPath = function(root, target) {
   if (root == null) {
     return false;
@@ -17,8 +15,8 @@ const hasPath = function(root, target) {
   }
 
   return (
-    hasPath(root.left, target - root.vale) ||
-    hasPath(root.right, target - root.vale)
+    hasPath(root.left, target - root.value) ||
+    hasPath(root.right, target - root.value)
   );
 };
 
